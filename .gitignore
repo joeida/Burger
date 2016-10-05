@@ -1,0 +1,4 @@
+.DS_Store
+node_modules
+heroku.log
+config/connection.js

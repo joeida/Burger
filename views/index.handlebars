@@ -1,0 +1,61 @@
+<h1>Eat Da Burger</h1>
+
+<div class="row" id="burgerList">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2 class="panel-title"><strong>Burgers Itinerary</strong></h2>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <!-- handlbards non-escaped rendered content -->
+                    {{#each burger}}
+                        {{#unless this.devoured}}
+                            <li>
+                                {{this.burger_name}}
+                
+                                <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+                                    <input type="hidden" name="devoured" value="true">
+                                    <button type="submit">Devour!</button>
+                                </form>
+                            </li>
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-sm-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h2 class="panel-title"><strong>Burgers Eaten</strong></h2>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <!-- handlbards non-escaped rendered content -->
+                    {{#each burger}}
+                        {{#if this.devoured}}
+                            <li>
+                                {{this.burger_name}}
+                            </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+
+<h2>Add a Burger</h2>
+<form class="create-update-form" action="burgers/create" method="POST">
+
+    <div class="form-group">
+        <label for="burgerlabel">Burger Name:</label>
+        <input type="text" id="burgerInput" name="name">
+    </div>
+
+    <button type="submit">Add Burger</button>
+</form>
