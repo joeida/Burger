@@ -23,7 +23,7 @@
     2. layouts directory.
       1. main.handlebars. - html layout for handlebars templates to be rendered onto.
 
-* Game Logic
+* Application Logic
   1. When data inputted, a POST request is sent to /burgers/create endpoint.
   2. New burger object written to database.
   3. Burger database is re-rendered again via handlebars template (will show added content to burgers itinerary list).
